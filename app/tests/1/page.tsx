@@ -1,19 +1,26 @@
 import Image from "next/image";
 
 export default function Home() {
-  const limit = 10;
+  const limit = 1000;
   const multipliers = [3, 5];
 
   const sumMultipliers = ():number => {
-    let sum = 0;
+    const values: number[] = [];
     multipliers.forEach((multiplier) => {
       let i = 1;
-      //This does not yet account for values that are multiples of both 3 and 5 being counted twice.
       while(i * multiplier <= limit)
       {
-        sum+= i * multiplier;
+        if(!values.includes(i * multiplier))
+        { 
+          values.push(i * multiplier);
+        }
         i++;
       }
+    })
+    let sum = 0;
+    values.forEach(value => 
+    {
+      sum += value;
     })
     return sum;
   }
