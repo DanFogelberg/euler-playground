@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Home() {
   let previousFibonacci = 0;
   let currentFibonacci = 1;
@@ -8,8 +6,11 @@ export default function Home() {
   const SumFibonacci = ():number => {
     let sum = 0;
     while(previousFibonacci + currentFibonacci <= maxValue){
-      currentFibonacci += previousFibonacci;
-      sum += currentFibonacci;
+      let newFibonacci = currentFibonacci + previousFibonacci;
+      sum += newFibonacci;
+
+      previousFibonacci = currentFibonacci;
+      currentFibonacci = newFibonacci;
     }
     return sum;
   }
@@ -18,9 +19,9 @@ export default function Home() {
 
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-slate-400">
-      <h1 className="font-bold text-4xl text-black">Problem 2</h1>
-      <p>Sum of Fibonacci values not exceeding {sum} equals {sum}</p>
+    <main className="flex min-h-screen flex-col items-center p-24 bg-slate-400">
+      <h1 className="font-bold text-4xl p-6 text-black">Problem 2</h1>
+      <p>Sum of Fibonacci values not exceeding {maxValue} equals {sum}</p>
     </main>
   );
 }

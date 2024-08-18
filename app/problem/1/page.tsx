@@ -27,7 +27,7 @@ export default function Home() {
   const sum = sumMultipliers();
   return (
     <main className="flex min-h-screen flex-col items-center  p-24 bg-slate-400">
-      <h1 className="font-bold text-4xl text-black">Problem 1</h1>
+      <h1 className="font-bold text-4xl p-6 text-black">Problem 1</h1>
       <p>The sum of the multipliers are {sum}</p>
     </main>
   );
